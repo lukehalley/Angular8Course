@@ -1,2 +1,3 @@
 .DS_Store
 node_modules/
+./section-5-example-app/node_modules
