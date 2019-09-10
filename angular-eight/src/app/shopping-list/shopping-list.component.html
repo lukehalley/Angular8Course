@@ -1,0 +1,28 @@
+<div>
+  <ul class="list-group">
+    <li
+      href="#"
+      *ngFor="let ingredient of ingredients"
+      class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+      style="cursor: pointer;"
+    >
+      {{ ingredient.name }}
+      <span class="badge badge-primary badge-pill">{{
+        ingredient.amount
+      }}</span>
+    </li>
+  </ul>
+</div>
+
+<br />
+
+<button type="button" class="btn btn-primary mr-1 btn-space" disabled>
+  Edit
+</button>
+<button type="button" class="btn btn-danger mr-1 btn-space" disabled>
+  Delete
+</button>
+
+<hr />
+
+<app-shopping-list-edit></app-shopping-list-edit>

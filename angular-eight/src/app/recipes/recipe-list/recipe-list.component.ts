@@ -9,14 +9,14 @@ import { Recipe } from '../recipe.model';
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [
     new Recipe(
-      'Butter',
-      'Really creamy',
-      'https://www.abelandcole.co.uk/media/7574_17265_z.jpg'
+      'Apple Pie',
+      'Really nice.',
+      'https://images-gmi-pmc.edge-generalmills.com/173da066-c6b4-45dd-9b28-0d459cf6f169.jpg'
     ),
     new Recipe(
-      'Milk',
-      'Not so creamy',
-      'https://upload.wikimedia.org/wikipedia/commons/0/0e/Milk_glass.jpg'
+      'Chocolate Cake',
+      'Very sweet!',
+      'https://natashaskitchen.com/wp-content/uploads/2019/05/Chocolate-Cake-Recipe-3.jpg'
     )
   ];
 
