@@ -1,2 +1,47 @@
-<app-server></app-server>
-<app-server></app-server>
+
+
+<br>
+
+<!-- SERVER -->
+
+<label>Server Name</label>
+<input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="" [(ngModel)]="serverName">
+
+<button type="button" class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add A Server</button>
+
+<br>
+
+<p>{{ serverCreationStatus }}</p>
+
+<!-- USERNAME -->
+
+<label>Username</label>
+<input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="" [(ngModel)]="username">
+
+<button type="button" class="btn btn-primary" [disabled]="username === ''" (click)="OnAddUser()">Add A User</button>
+
+<br>
+
+<p *ngIf="userCreated; else noUserAdded">{{ usernameCreationStatus }}</p>
+<ng-template #noUserAdded>No users have been added yet!</ng-template>
+
+<app-server *ngFor="let server of servers"></app-server>
+
+<br>
+<br>
+
+<!-- DISPLAY DETAILS -->
+
+<label>Details</label>
+
+
+
+<br>
+
+<button type="button" class="btn btn-primary" (click)="OnDisplayDetailsBtn() ">Display Details</button>
+
+<p *ngIf="!hideDetailsToggle">Secret Password = Tuna</p>
+
+<p *ngFor="let toggleCount of hideDetailsToggleCountList; let i = index" [ngStyle]="{'background-color': i >= 4 ? 'blue' : 'transparent'}" [ngClass]="{'white-text': i >= 4}"> {{ toggleCount }} </p>
+
+
