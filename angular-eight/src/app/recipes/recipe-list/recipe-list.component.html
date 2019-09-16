@@ -1,18 +1,12 @@
 <div class="list-group">
-  <a
-    *ngFor="let recipe of recipes"
-    href="#"
-    class="list-group-item list-group-item-action"
-  >
-    <div class="d-flex w-100 justify-content-between">
-      <h4 class="mb-1">{{ recipe.name }}</h4>
-      <small>3 days ago</small>
+  <app-recipe-item
+    *ngFor="let recipeElement of recipes"
+    [recipe]="recipeElement"
+    (recipeSelected)="onRecipeRecieved(recipeElement)"
+  ></app-recipe-item>
+  <div class="row">
+    <div class="col-md-12">
+      <button type="button" class="btn btn-primary">New Recipe</button>
     </div>
-    <div class="d-flex w-100 justify-content-between">
-      <p class="mb-1">
-        {{ recipe.description }}
-      </p>
-    </div>
-  </a>
+  </div>
 </div>
-<app-recipe-item></app-recipe-item>
