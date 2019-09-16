@@ -1,15 +1,19 @@
 <div class="row">
   <div class="col-md-6">
-    <app-recipe-list></app-recipe-list>
+    <app-recipe-list
+      (recipeRecieved)="showRecipeDetails($event)"
+    ></app-recipe-list>
   </div>
 
   <div class="col-md-6">
-    <app-recipe-detail></app-recipe-detail>
+    <app-recipe-detail
+      *ngIf="selectedRecipe; else selectPrompt"
+      [recipe]="selectedRecipe"
+    ></app-recipe-detail>
   </div>
-</div>
-
-<div class="row">
-  <div class="col-md-12">
-    <button type="button" class="btn btn-primary">New Recipe</button>
-  </div>
+  <ng-template #selectPrompt>
+    <div class="alert alert-light" role="alert">
+      Please Select A Recipe!
+    </div>
+  </ng-template>
 </div>
