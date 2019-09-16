@@ -1,27 +1,18 @@
-<app-header></app-header>
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <app-recipe></app-recipe>
-            <app-shopping-list></app-shopping-list>
-        </div>
-    </div>
-</div> -->
+<app-header (menuItemSelected)="onNavigate($event)"></app-header>
 
-<br>
+<br />
 
 <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm">
-          <p class="h3">Your Recipes.</p>
-          <hr>
-          <app-recipe></app-recipe>
-      </div>
-      <div class="col-sm">
-          <p class="h3">Your Shopping List.</p>
-          <hr>
-          <app-shopping-list></app-shopping-list>
-      </div>
+  <div class="row">
+    <div *ngIf="pageToNav === 'recipe'" class="col-sm">
+      <p class="h3">Your Recipes.</p>
+      <hr />
+      <app-recipe></app-recipe>
+    </div>
+    <div *ngIf="pageToNav === 'shopping'" class="col-sm">
+      <p class="h3">Your Shopping List.</p>
+      <hr />
+      <app-shopping-list></app-shopping-list>
     </div>
   </div>
-
+</div>
