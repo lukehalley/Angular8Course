@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <ng-template [ngIf]="onlyOdd">
+      <p>Displaying Only Odd Numbers</p>
+    </ng-template>
+    <div *ngIf="onlyOdd">
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          [ngClass]="{ odd: oNum % 2 !== 0 }"
+          [ngStyle]="{
+            backgroundColor: oNum % 2 !== 0 ? 'yellow' : 'transparent'
+          }"
+          *ngFor="let oNum of oddNumbers"
+        >
+          {{ oNum }}
+        </li>
+      </ul>
+    </div>
+    <ng-template [ngIf]="!onlyOdd">
+      <p>Displaying Even and Odd Numbers</p>
+    </ng-template>
+    <div *appUnless="onlyOdd">
+      <p>Using Our Own Structural Directive</p>
+    </div>
+
+    <div *ngIf="!onlyOdd">
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          [ngClass]="{ odd: eNum % 2 !== 0 }"
+          [ngStyle]="{
+            backgroundColor: eNum % 2 !== 0 ? 'yellow' : 'transparent'
+          }"
+          *ngFor="let eNum of evenNumbers"
+        >
+          {{ eNum }}
+        </li>
+      </ul>
+    </div>
+    <hr />
+    <div class="col-xs-12">
+      <button class="btn btn-primary" (click)="onlyOdd = !onlyOdd">
+        Only show odd numbers
+      </button>
+    </div>
+  </div>
+  <br />
+  <p appBasicHighlight>My Style</p>
+  <p appBetterHighlight [defaultColor]="'yellow'" [highlightColor]="'red'">
+    My Better Style
+  </p>
+  <hr />
+  <div [ngSwitch]="value">
+    <p *ngSwitchCase="value <= 0">Broke</p>
+    <p *ngSwitchCase="value >= 0 || value <= 5">Middle Man</p>
+    <p *ngSwitchCase="value >= 10">Rich</p>
+    {{ value }}
+  </div>
+  <button class="btn btn-primary" (click)="onClickAdd()">
+    Run It Up Carti
+  </button>
+</div>
