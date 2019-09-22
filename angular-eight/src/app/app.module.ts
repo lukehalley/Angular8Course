@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 // App Components
 import { AppComponent } from './app.component';
@@ -28,7 +29,7 @@ import { ShoppinglistService } from './services/shoppinglist.service';
     HeaderComponent,
     RecipeComponent
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [BsDropdownModule.forRoot(), BrowserModule, FormsModule],
   bootstrap: [AppComponent],
   providers: [ShoppinglistService]
 })

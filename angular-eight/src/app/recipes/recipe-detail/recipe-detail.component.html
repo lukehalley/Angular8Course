@@ -13,23 +13,44 @@
         <p class="card-text">
           {{ recipe.description }}
         </p>
-        <div class="btn-group">
+        <ul class="list-group">
+          <li
+            href="#"
+            *ngFor="let ingredient of recipe.ingredients"
+            class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+            style="cursor: pointer;"
+          >
+            {{ ingredient.name }}
+            <span class="badge badge-primary badge-pill">{{
+              ingredient.amount
+            }}</span>
+          </li>
+        </ul>
+        <br />
+        <div class="btn-group" dropdown>
           <button
+            dropdownToggle
             type="button"
             class="btn btn-primary dropdown-toggle"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
           >
-            Manage Recipe
+            Manage Recipe <span class="caret"></span>
           </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
+          <ul *dropdownMenu class="dropdown-menu" role="menu">
+            <li role="menuitem">
+              <a
+                class="dropdown-item"
+                href="#"
+                (click)="onAddToShoppingList(recipe.ingredients)"
+                >Add To Shopping List</a
+              >
+            </li>
+            <li role="menuitem">
+              <a class="dropdown-item" href="#">Edit Recipe</a>
+            </li>
+            <li role="menuitem">
+              <a class="dropdown-item" href="#">Delete Recipe</a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
