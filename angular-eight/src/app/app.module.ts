@@ -27,11 +27,8 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
     HeaderComponent,
     RecipeComponent
   ],
-  imports: [
-    BrowserModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
